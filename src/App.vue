@@ -1,16 +1,18 @@
 <template>
-  <div class="container">
-    <HeaderComponent
-      title="Task Tracker"
-      @delete-all-tasks="deleteAllTasks"
-      @add-task="addTask"
-    />
-    <TaskList
-      :tasks="tasks"
-      @delete-task="deleteTask"
-      @mark-task-complete="markTaskComplete"
-      @edit-task="editTask"
-    />
+  <div class="container" id="app">
+    <v-app id="inspire">
+      <HeaderComponent
+        title="Task Tracker"
+        @delete-all-tasks="deleteAllTasks"
+        @add-task="addTask"
+      />
+      <TaskList
+        :tasks="tasks"
+        @delete-task="deleteTask"
+        @mark-task-complete="markTaskComplete"
+        @edit-task="editTask"
+      />
+    </v-app>
   </div>
 </template>
 

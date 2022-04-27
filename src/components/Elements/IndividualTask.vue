@@ -5,7 +5,20 @@
       <i class="fas fa-times" @click="$emit('delete-task', task.id)"></i>
       <i class="fas fa-edit" @click="$emit('edit-task', task.id)"></i>
       <i class="fas fa-check" @click="$emit('mark-task-complete', task.id)"></i>
+
+      <v-tooltip bottom color="success">
+        <template v-slot:activator="{ on, attrs }">
+          <i
+            class="fas fa-trash-alt"
+            @click="$emit('delete-task', task.id)"
+            :on="on"
+            :attrs="attrs"
+          ></i>
+        </template>
+        <span>Delete Button</span>
+      </v-tooltip>
     </div>
+
     <p v-if="task.completed">This task is completed!</p>
     <p v-else>This task is not completed!</p>
   </div>
@@ -30,12 +43,6 @@ export default {
 </script>
 
 <style scoped>
-.fa-times {
-  color: red;
-}
-.fas:hover {
-  cursor: pointer;
-}
 .TaskTitle {
   width: 69rem;
 }
@@ -46,11 +53,6 @@ export default {
   column-gap: 1.2rem;
 }
 
-.TaskButtons {
-  display: flex;
-  align-items: center;
-  justify-content: right;
-}
 .IndividualTask {
   background: #f4f4f4;
   margin: 0.5rem;
