@@ -1,6 +1,6 @@
 <template>
-  <div class="container" id="app">
-    <v-app id="inspire">
+  <div class="container">
+    <v-app>
       <HeaderComponent
         title="Task Tracker"
         @delete-all-tasks="deleteAllTasks"
@@ -90,7 +90,7 @@ export default {
     },
     editTask(id) {
       const task = this.tasks.find((task) => task.id === id);
-      const updatedTask = prompt("Enter updated task", task.title);
+      const updatedTask = prompt("Enter a new name for this task...", task.title);
       if (updatedTask.length > 70) {
         alert("Your task is too long! It must be less than 70 characters.");
       } else if (updatedTask.length === 0) {

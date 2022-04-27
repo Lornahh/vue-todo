@@ -2,20 +2,38 @@
   <div :class="[task.completed ? 'reminder' : '', 'IndividualTask']">
     <div class="TaskContainer">
       <h3 class="TaskTitle">{{ task.title }}</h3>
-      <i class="fas fa-times" @click="$emit('delete-task', task.id)"></i>
-      <i class="fas fa-edit" @click="$emit('edit-task', task.id)"></i>
-      <i class="fas fa-check" @click="$emit('mark-task-complete', task.id)"></i>
 
-      <v-tooltip bottom color="success">
-        <template v-slot:activator="{ on, attrs }">
+      <v-tooltip>
+        <template v-slot:activator="{ props }">
           <i
-            class="fas fa-trash-alt"
-            @click="$emit('delete-task', task.id)"
-            :on="on"
-            :attrs="attrs"
+            class="fas fa-edit"
+            v-bind="props"
+            @click="$emit('edit-task', task.id)"
           ></i>
         </template>
-        <span>Delete Button</span>
+        <span>Edit This task...</span>
+      </v-tooltip>
+
+      <v-tooltip>
+        <template v-slot:activator="{ props }">
+          <i
+            class="fas fa-times"
+            v-bind="props"
+            @click="$emit('delete-task', task.id)"
+          ></i>
+        </template>
+        <span>Delete This Task...</span>
+      </v-tooltip>
+
+      <v-tooltip>
+        <template v-slot:activator="{ props }">
+          <i
+            class="fas fa-check"
+            v-bind="props"
+            @click="$emit('mark-task-complete', task.id)"
+          ></i>
+        </template>
+        <span>Mark This Task Complete...</span>
       </v-tooltip>
     </div>
 
@@ -43,6 +61,15 @@ export default {
 </script>
 
 <style scoped>
+.fa-check {
+  color: green;
+}
+.fa-times {
+  color: red;
+}
+.fa-edit {
+  color: blue;
+}
 .TaskTitle {
   width: 69rem;
 }
