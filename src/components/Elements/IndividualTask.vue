@@ -3,7 +3,7 @@
     <div class="TaskContainer">
       <h3 class="TaskTitle">{{ task.title }}</h3>
 
-      <v-tooltip>
+      <v-tooltip anchor="bottom">
         <template v-slot:activator="{ props }">
           <i
             class="fas fa-edit"
@@ -14,7 +14,7 @@
         <span>Edit This task...</span>
       </v-tooltip>
 
-      <v-tooltip>
+      <v-tooltip anchor="bottom">
         <template v-slot:activator="{ props }">
           <i
             class="fas fa-times"
@@ -25,7 +25,7 @@
         <span>Delete This Task...</span>
       </v-tooltip>
 
-      <v-tooltip>
+      <v-tooltip anchor="bottom">
         <template v-slot:activator="{ props }">
           <i
             class="fas fa-check"
